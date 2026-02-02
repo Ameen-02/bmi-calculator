@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart BMI Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="light">
+
+<div class="container">
+  <div class="top-bar">
+    <select id="language" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+      <option value="ur">اردو</option>
+      <option value="tr">Türkçe</option>
+      <option value="es">Español</option>
+      <option value="vi">Tiếng Việt</option>
+    </select>
+
+    <button class="mode-btn" onclick="toggleMode()">🌙</button>
+  </div>
+
+  <h1 id="title">Smart BMI Calculator</h1>
+
+  <!-- Gender -->
+  <div class="gender-box">
+    <label><input type="radio" name="gender" value="Male"> <span id="maleTxt">Male</span></label>
+    <label><input type="radio" name="gender" value="Female"> <span id="femaleTxt">Female</span></label>
+  </div>
+
+  <!-- Age -->
+  <input type="number" id="age" placeholder="Age (years)">
+
+  <!-- Unit Toggle -->
+  <div class="unit-toggle">
+    <select id="heightUnit" onchange="convertHeight()">
+      <option value="cm">Height: cm</option>
+      <option value="ft">Height: feet/inch</option>
+    </select>
+
+    <select id="weightUnit" onchange="convertWeight()">
+      <option value="kg">Weight: kg</option>
+      <option value="lb">Weight: pounds</option>
+    </select>
+  </div>
+
+  <!-- Height / Weight -->
+  <input type="number" id="height" placeholder="Height (cm)">
+
+  <div id="feetBox">
+    <input type="number" id="feet" placeholder="Feet">
+    <input type="number" id="inch" placeholder="Inches">
+  </div>
+
+  <input type="number" id="weight" placeholder="Weight (kg)">
+
+  <!-- Goal -->
+  <input type="number" id="goalBMI" placeholder="Target BMI (Goal)">
+
+  <button onclick="calculateBMI()" id="calcBtn">Calculate BMI</button>
+
+  <!-- Progress Bar -->
+  <div class="progress-container">
+    <div id="bmiProgress"></div>
+  </div>
+
+  <!-- BMI Chart -->
+  <div class="bmi-chart">
+    <div class="bar blue">Under</div>
+    <div class="bar green normal-range">Normal</div>
+    <div class="bar orange">Over</div>
+    <div class="bar red">Obese</div>
+  </div>
+
+  <!-- Result Box -->
+  <div id="resultBox" class="result-box">
+    <h2 id="bmiResult"></h2>
+    <p id="bmiCategory"></p>
+    <p id="customMessage"></p>
+    <p id="goalMessage"></p>
+    <p id="ageMessage"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
